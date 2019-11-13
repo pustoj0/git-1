@@ -11,9 +11,9 @@ import java.util.Map;
 public class GreetingController {
 
     @GetMapping("/greet")
-    public String greeting(@RequestParam(name="name1", required=false, defaultValue="World") String name,
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,
                            Map<String, Object> model) {
-        model.put("name1", name);
+        model.put("name", name);
         return "greeting";
     }
 
@@ -21,6 +21,13 @@ public class GreetingController {
     public String main(Map<String, Object> model){
         model.put("some","Hello, lets Code!");
         return "main";
+    }
+
+    @GetMapping("/bye")
+    public String bye(@RequestParam(name="name", required=false, defaultValue="World") String name,
+                           Map<String, Object> model) {
+        model.put("name", name);
+        return "bye";
     }
 
 }
